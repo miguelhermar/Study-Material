@@ -20,7 +20,7 @@ from fact_sales_monthly fsm
 JOIN dim_product dp
 ON fsm.product_code=dp.product_code
 JOIN fact_gross_price fgp
-ON fsm.product_code=fgp.product_code  AND get_fiscal_year(fsm.date)=fgp.fiscal_year
+ON fsm.product_code=fgp.product_code AND get_fiscal_year(fsm.date)=fgp.fiscal_year
 where customer_code=90002002 
 	and get_fiscal_year(date)=2021;
     
