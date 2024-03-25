@@ -1,0 +1,1 @@
+Used for static files, where the data is not going to change very often.

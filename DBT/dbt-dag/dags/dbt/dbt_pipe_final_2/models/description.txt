@@ -1,0 +1,3 @@
+Models are SQL files that define the transformations to be applied to your raw data. 
+They typically represent tables or views in your warehouse. 
+dbt runs these models in the defined order to build your data warehouse's transformation layer.

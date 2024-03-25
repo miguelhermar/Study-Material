@@ -1,0 +1,17 @@
+# Generic Tests
+
+models:
+  - name: fct_orders # name of the model being tested
+    columns:
+      - name: order_key
+        tests:
+          - unique
+          - not_null
+          - relationships: # checks that order_key column is a foreign key of the stg_tpch_orders table
+              to: ref('stg_tpch_orders')
+              field: order_key
+              severity: warn # warn means that if the test fails, it will issue a warning rather than failing the entire test suite or data build process.
+      - name: status_code
+        tests:
+          - accepted_values:
+              values: ['P', 'O', 'F']

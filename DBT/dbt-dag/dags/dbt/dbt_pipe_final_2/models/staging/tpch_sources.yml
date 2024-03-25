@@ -1,0 +1,26 @@
+# Creates source tables
+
+# The staging layer is the first layer of transformation applied to your raw data. 
+# It involves light transformations to clean and prepare the raw data for further processing. 
+# This usually includes renaming fields for consistency, converting data types, and filtering out unnecessary rows.
+
+version: 2
+
+sources:
+  - name: tpch
+    database: snowflake_sample_data
+    schema: tpch_sf1
+    tables:
+      - name: orders
+        columns:
+          - name: o_orderkey
+            tests:
+              - unique
+              - not_null
+      - name: lineitem
+        columns:
+          - name: l_orderkey
+            tests: # it makes sure that the l_orderkey table is a foreign key of this table
+              - relationships:
+                  to: source('tpch', 'orders')
+                  field: o_orderkey

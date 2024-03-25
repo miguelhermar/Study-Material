@@ -1,0 +1,664 @@
+(base) miguelhermar@miguels-MBP Hive % chmod 400 key-pair2.pem
+(base) miguelhermar@miguels-MBP Hive % ssh -i ./key-pair2.pem hadoop@ec2-35-92-232-167.us-west-2.compute.amazonaws.com
+The authenticity of host 'ec2-35-92-232-167.us-west-2.compute.amazonaws.com (35.92.232.167)' can't be established.
+ED25519 key fingerprint is SHA256:UipvY8oHP5vwwsvFHlnma4s+wbk+Ll+hVdxAw3qtmsM.
+This key is not known by any other names.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added 'ec2-35-92-232-167.us-west-2.compute.amazonaws.com' (ED25519) to the list of known hosts.
+
+A newer release of "Amazon Linux" is available.
+  Version 2023.3.20240312:
+Run "/usr/bin/dnf check-release-update" for full release and version update info
+   ,     #_
+   ~\_  ####_        Amazon Linux 2023
+  ~~  \_#####\
+  ~~     \###|
+  ~~       \#/ ___   https://aws.amazon.com/linux/amazon-linux-2023
+   ~~       V~' '->
+    ~~~         /
+      ~~._.   _/
+         _/ _/
+       _/m/'
+                                                                    
+EEEEEEEEEEEEEEEEEEEE MMMMMMMM           MMMMMMMM RRRRRRRRRRRRRRR    
+E::::::::::::::::::E M:::::::M         M:::::::M R::::::::::::::R   
+EE:::::EEEEEEEEE:::E M::::::::M       M::::::::M R:::::RRRRRR:::::R 
+  E::::E       EEEEE M:::::::::M     M:::::::::M RR::::R      R::::R
+  E::::E             M::::::M:::M   M:::M::::::M   R:::R      R::::R
+  E:::::EEEEEEEEEE   M:::::M M:::M M:::M M:::::M   R:::RRRRRR:::::R 
+  E::::::::::::::E   M:::::M  M:::M:::M  M:::::M   R:::::::::::RR   
+  E:::::EEEEEEEEEE   M:::::M   M:::::M   M:::::M   R:::RRRRRR::::R  
+  E::::E             M:::::M    M:::M    M:::::M   R:::R      R::::R
+  E::::E       EEEEE M:::::M     MMM     M:::::M   R:::R      R::::R
+EE:::::EEEEEEEE::::E M:::::M             M:::::M   R:::R      R::::R
+E::::::::::::::::::E M:::::M             M:::::M RR::::R      R::::R
+EEEEEEEEEEEEEEEEEEEE MMMMMMM             MMMMMMM RRRRRRR      RRRRRR
+                                                                    
+[hadoop@ip-10-0-0-241 ~]$ 
+[hadoop@ip-10-0-0-241 ~]$ 
+[hadoop@ip-10-0-0-241 ~]$ 
+[hadoop@ip-10-0-0-241 ~]$ 
+[hadoop@ip-10-0-0-241 ~]$ 
+[hadoop@ip-10-0-0-241 ~]$ hive
+Hive Session ID = c045dae0-5885-407b-b4d6-ff0361e8fabd
+
+Logging initialized using configuration in file:/etc/hive/conf.dist/hive-log4j2.properties Async: true
+hive> show databases
+    > ;
+OK
+default
+Time taken: 0.304 seconds, Fetched: 1 row(s)
+hive> use default;
+OK
+Time taken: 0.023 seconds
+hive> show tables;
+OK
+Time taken: 0.035 seconds
+hive> client_loop: send disconnect: Broken pipe
+(base) miguelhermar@miguels-MBP Hive % ssh -i ./key-pair2.pem hadoop@ec2-35-92-232-167.us-west-2.compute.amazonaws.com
+
+A newer release of "Amazon Linux" is available.
+  Version 2023.3.20240312:
+Run "/usr/bin/dnf check-release-update" for full release and version update info
+   ,     #_
+   ~\_  ####_        Amazon Linux 2023
+  ~~  \_#####\
+  ~~     \###|
+  ~~       \#/ ___   https://aws.amazon.com/linux/amazon-linux-2023
+   ~~       V~' '->
+    ~~~         /
+      ~~._.   _/
+         _/ _/
+       _/m/'
+Last login: Sat Mar 16 21:07:09 2024 from 187.189.91.246
+                                                                    
+EEEEEEEEEEEEEEEEEEEE MMMMMMMM           MMMMMMMM RRRRRRRRRRRRRRR    
+E::::::::::::::::::E M:::::::M         M:::::::M R::::::::::::::R   
+EE:::::EEEEEEEEE:::E M::::::::M       M::::::::M R:::::RRRRRR:::::R 
+  E::::E       EEEEE M:::::::::M     M:::::::::M RR::::R      R::::R
+  E::::E             M::::::M:::M   M:::M::::::M   R:::R      R::::R
+  E:::::EEEEEEEEEE   M:::::M M:::M M:::M M:::::M   R:::RRRRRR:::::R 
+  E::::::::::::::E   M:::::M  M:::M:::M  M:::::M   R:::::::::::RR   
+  E:::::EEEEEEEEEE   M:::::M   M:::::M   M:::::M   R:::RRRRRR::::R  
+  E::::E             M:::::M    M:::M    M:::::M   R:::R      R::::R
+  E::::E       EEEEE M:::::M     MMM     M:::::M   R:::R      R::::R
+EE:::::EEEEEEEE::::E M:::::M             M:::::M   R:::R      R::::R
+E::::::::::::::::::E M:::::M             M:::::M RR::::R      R::::R
+EEEEEEEEEEEEEEEEEEEE MMMMMMM             MMMMMMM RRRRRRR      RRRRRR
+                                                                    
+[hadoop@ip-10-0-0-241 ~]$ hive
+Hive Session ID = 62bd7bf2-b4d6-4285-98a3-cedaca78f06b
+
+Logging initialized using configuration in file:/etc/hive/conf.dist/hive-log4j2.properties Async: true
+hive> use default;
+OK
+Time taken: 0.272 seconds
+hive> show tables;
+OK
+Time taken: 0.088 seconds
+hive> CREATE EXTERNAL TABLE IF NOT EXISTS sales_table
+    > (
+    > `region` string,
+    > `country`  string,
+    > `item_type`  string,
+    > `sales_channel`  string,
+    > `order_priority`  string,
+    > `order_date`  string,
+    > `order_id` string,
+    > `ship_date`  string,
+    > `units_sold`  string,
+    > `unit_price`  string,
+    > `unit_cost`  string,
+    > `total_revenue` string,
+    > `total_cost`  string,
+    > `total_profit`  string
+    > ) ROW FORMAT DELIMITED 
+    > FIELDS TERMINATED BY ','
+    > LOCATION 's3://hive-tutorial-emr41/main-folder/input/';
+OK
+Time taken: 3.19 seconds
+hive> select * from sales_table limit 5;
+OK
+region	country	item_type	sales_channel	order_priority	order_date	order_id	ship_date	units_sold	unit_price	unit_cost	total_revenue	total_cost	total_profit
+Middle East and North Africa	Libya	Cosmetics	Offline	M	10/18/2014	686800706	10-31-2014	8446	437.2	263.33	3692591.2	2224085.18	1468506.02
+North America	Canada	Vegetables	Online	M	11-07-2011	185941302	12-08-2011	3018	154.06	90.93	464953.08	274426.74	190526.34
+Middle East and North Africa	Libya	Baby Food	Offline	C	10/31/2016	246222341	12-09-2016	1517	255.28	159.42	387259.76	241840.14	145419.62
+Asia	Japan	Cereal	Offline	C	04-10-2010	161442649	05-12-2010	3322	205.7	117.11	683335.4	389039.42	294295.98
+Time taken: 1.04 seconds, Fetched: 5 row(s)
+hive> CREATE TABLE IF NOT EXISTS final_sales_tbl
+    > (
+    > `region` string,
+    > `country`  string,
+    > `item_type`  string,
+    > `sales_channel`  string,
+    > `order_priority`  string,
+    > `order_date`  string,
+    > `order_year` string,
+    > `ship_date`  string,
+    > `shipped_year`  string,
+    > `units_sold`  int,
+    > `unit_price`  float,
+    > `unit_cost`  float,
+    > `total_revenue`  float,
+    > `total_cost`  float,
+    > `total_profit`  float
+    > ) PARTITIONED BY (`order_id` int)
+    > STORED AS ORC;
+OK
+Time taken: 0.249 seconds
+hive> select * from final_sales_tbl;
+OK
+Time taken: 0.162 seconds
+hive> SET hive.exec.compress.intermediate=true;
+hive> SET hive.exec.dynamic.partition = true;
+hive> SET hive.exec.dynamic.partition.mode = nonstrict;
+hive> SET hive.mapred.mode = nonstrict;
+hive> INSERT OVERWRITE TABLE final_sales_tbl partition(`order_id`)
+    > SELECT
+    > cast(region  as string),
+    > cast(`country` as string),
+    > cast(`item_type` as string),
+    > cast(`sales_channel` as  string),
+    > cast(`order_priority` as string),
+    > coalesce(
+    >  CAST( from_unixtime(unix_timestamp(`order_date`, 'MM/dd/yyyy'), 'yyyy-MM-dd') as string) ,
+    >  CAST( from_unixtime(unix_timestamp(`order_date`, 'dd-MM-yyyy'), 'yyyy-MM-dd') as string)
+    > ) ,
+    > coalesce(
+    >  CAST( from_unixtime(unix_timestamp(order_date,  'MM/dd/yyyy'), "yyyy") as string) ,
+    >   CAST(from_unixtime(unix_timestamp(order_date, 'dd-MM-yyyy'), "yyyy")AS STRING)
+    > )as order_year,
+    > coalesce(
+    >  CAST( from_unixtime(unix_timestamp(`ship_date`  , 'MM/dd/yyyy'), 'yyyy-MM-dd') as string) ,
+    >  CAST( from_unixtime(unix_timestamp(`ship_date`  , 'dd-MM-yyyy'), 'yyyy-MM-dd') as string)
+    > ) ,
+    > coalesce(
+    >  CAST( from_unixtime(unix_timestamp(`ship_date`  , 'MM/dd/yyyy'), "yyyy") as string) ,
+    >   CAST(from_unixtime(unix_timestamp(`ship_date` , 'dd-MM-yyyy'), "yyyy")AS STRING)
+    > )as shipped_year,
+    > cast(`units_sold` as  int),
+    > cast(`unit_price`as  float),
+    > cast(`unit_cost` as float),
+    > cast(`total_revenue` as  float),
+    > cast(`total_cost`as  float),
+    > cast(`total_profit`as  float),
+    > cast(`order_id` as int)
+    > FROM sales_table ;
+Query ID = hadoop_20240316212400_0fc2f284-0837-45cc-9e26-96850f073104
+Total jobs = 1
+Launching Job 1 out of 1
+Tez session was closed. Reopening...
+Session re-established.
+Session re-established.
+Status: Running (Executing on YARN cluster with App id application_1710623082158_0003)
+
+----------------------------------------------------------------------------------------------
+        VERTICES      MODE        STATUS  TOTAL  COMPLETED  RUNNING  PENDING  FAILED  KILLED  
+----------------------------------------------------------------------------------------------
+Map 1 .......... container     SUCCEEDED      1          1        0        0       0       0  
+Reducer 2 ...... container     SUCCEEDED      2          2        0        0       0       0  
+Reducer 3        container       RUNNING      2          0        0        2       7       0  
+----------------------------------------------------------------------------------------------
+VERTICES: 02/03  [===============>>-----------] 60%   ELAPSED TIME: 62.50 s    
+----------------------------------------------------------------------------------------------
+Status: Failed
+Vertex failed, vertexName=Reducer 3, vertexId=vertex_1710623082158_0003_1_02, diagnostics=[Task failed, taskId=task_1710623082158_0003_1_02_000000, diagnostics=[TaskAttempt 0 failed, info=[Error: Error while running task ( failure ) : attempt_1710623082158_0003_1_02_000000_0:java.lang.RuntimeException: java.lang.RuntimeException: org.apache.hadoop.hive.ql.metadata.HiveException: Hive Runtime Error while processing vector batch (tag=0) (vectorizedVertexNum 2)
+	at org.apache.hadoop.hive.ql.exec.tez.TezProcessor.initializeAndRunProcessor(TezProcessor.java:304)
+	at org.apache.hadoop.hive.ql.exec.tez.TezProcessor.run(TezProcessor.java:254)
+	at org.apache.tez.runtime.LogicalIOProcessorRuntimeTask.run(LogicalIOProcessorRuntimeTask.java:384)
+	at org.apache.tez.runtime.task.TaskRunner2Callable$1.run(TaskRunner2Callable.java:88)
+	at org.apache.tez.runtime.task.TaskRunner2Callable$1.run(TaskRunner2Callable.java:69)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:712)
+	at java.base/javax.security.auth.Subject.doAs(Subject.java:439)
+	at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1899)
+	at org.apache.tez.runtime.task.TaskRunner2Callable.callInternal(TaskRunner2Callable.java:69)
+	at org.apache.tez.runtime.task.TaskRunner2Callable.callInternal(TaskRunner2Callable.java:39)
+	at org.apache.tez.common.CallableWithNdc.call(CallableWithNdc.java:36)
+	at com.google.common.util.concurrent.TrustedListenableFutureTask$TrustedFutureInterruptibleTask.runInterruptibly(TrustedListenableFutureTask.java:131)
+	at com.google.common.util.concurrent.InterruptibleTask.run(InterruptibleTask.java:74)
+	at com.google.common.util.concurrent.TrustedListenableFutureTask.run(TrustedListenableFutureTask.java:82)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: java.lang.RuntimeException: org.apache.hadoop.hive.ql.metadata.HiveException: Hive Runtime Error while processing vector batch (tag=0) (vectorizedVertexNum 2)
+	at org.apache.hadoop.hive.ql.exec.tez.ReduceRecordSource.pushRecordVector(ReduceRecordSource.java:401)
+	at org.apache.hadoop.hive.ql.exec.tez.ReduceRecordSource.pushRecord(ReduceRecordSource.java:249)
+	at org.apache.hadoop.hive.ql.exec.tez.ReduceRecordProcessor.run(ReduceRecordProcessor.java:318)
+	at org.apache.hadoop.hive.ql.exec.tez.TezProcessor.initializeAndRunProcessor(TezProcessor.java:272)
+	... 16 more
+Caused by: org.apache.hadoop.hive.ql.metadata.HiveException: Hive Runtime Error while processing vector batch (tag=0) (vectorizedVertexNum 2)
+	at org.apache.hadoop.hive.ql.exec.tez.ReduceRecordSource.processVectorGroup(ReduceRecordSource.java:503)
+	at org.apache.hadoop.hive.ql.exec.tez.ReduceRecordSource.pushRecordVector(ReduceRecordSource.java:392)
+	... 19 more
+Caused by: org.apache.hadoop.hive.ql.metadata.HiveFatalException: [Error 20004]: Fatal error occurred when node tried to create too many dynamic partitions. The maximum number of dynamic partitions is controlled by hive.exec.max.dynamic.partitions and hive.exec.max.dynamic.partitions.pernode. Maximum was set to 100 partitions per node, number of dynamic partitions on this node: 101
+	at org.apache.hadoop.hive.ql.exec.FileSinkOperator.getDynOutPaths(FileSinkOperator.java:1289)
+	at org.apache.hadoop.hive.ql.exec.FileSinkOperator.process(FileSinkOperator.java:1029)
+	at org.apache.hadoop.hive.ql.exec.vector.VectorFileSinkOperator.process(VectorFileSinkOperator.java:111)
+	at org.apache.hadoop.hive.ql.exec.Operator.vectorForward(Operator.java:968)
+	at org.apache.hadoop.hive.ql.exec.vector.VectorSelectOperator.process(VectorSelectOperator.java:158)
+	at org.apache.hadoop.hive.ql.exec.tez.ReduceRecordSource.processVectorGroup(ReduceRecordSource.java:490)
+	... 20 more
+], TaskAttempt 1 failed, info=[Error: Error while running task ( failure ) : attempt_1710623082158_0003_1_02_000000_1:java.lang.RuntimeException: java.lang.RuntimeException: org.apache.hadoop.hive.ql.metadata.HiveException: Hive Runtime Error while processing vector batch (tag=0) (vectorizedVertexNum 2)
+	at org.apache.hadoop.hive.ql.exec.tez.TezProcessor.initializeAndRunProcessor(TezProcessor.java:304)
+	at org.apache.hadoop.hive.ql.exec.tez.TezProcessor.run(TezProcessor.java:254)
+	at org.apache.tez.runtime.LogicalIOProcessorRuntimeTask.run(LogicalIOProcessorRuntimeTask.java:384)
+	at org.apache.tez.runtime.task.TaskRunner2Callable$1.run(TaskRunner2Callable.java:88)
+	at org.apache.tez.runtime.task.TaskRunner2Callable$1.run(TaskRunner2Callable.java:69)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:712)
+	at java.base/javax.security.auth.Subject.doAs(Subject.java:439)
+	at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1899)
+	at org.apache.tez.runtime.task.TaskRunner2Callable.callInternal(TaskRunner2Callable.java:69)
+	at org.apache.tez.runtime.task.TaskRunner2Callable.callInternal(TaskRunner2Callable.java:39)
+	at org.apache.tez.common.CallableWithNdc.call(CallableWithNdc.java:36)
+	at com.google.common.util.concurrent.TrustedListenableFutureTask$TrustedFutureInterruptibleTask.runInterruptibly(TrustedListenableFutureTask.java:131)
+	at com.google.common.util.concurrent.InterruptibleTask.run(InterruptibleTask.java:74)
+	at com.google.common.util.concurrent.TrustedListenableFutureTask.run(TrustedListenableFutureTask.java:82)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: java.lang.RuntimeException: org.apache.hadoop.hive.ql.metadata.HiveException: Hive Runtime Error while processing vector batch (tag=0) (vectorizedVertexNum 2)
+	at org.apache.hadoop.hive.ql.exec.tez.ReduceRecordSource.pushRecordVector(ReduceRecordSource.java:401)
+	at org.apache.hadoop.hive.ql.exec.tez.ReduceRecordSource.pushRecord(ReduceRecordSource.java:249)
+	at org.apache.hadoop.hive.ql.exec.tez.ReduceRecordProcessor.run(ReduceRecordProcessor.java:318)
+	at org.apache.hadoop.hive.ql.exec.tez.TezProcessor.initializeAndRunProcessor(TezProcessor.java:272)
+	... 16 more
+Caused by: org.apache.hadoop.hive.ql.metadata.HiveException: Hive Runtime Error while processing vector batch (tag=0) (vectorizedVertexNum 2)
+	at org.apache.hadoop.hive.ql.exec.tez.ReduceRecordSource.processVectorGroup(ReduceRecordSource.java:503)
+	at org.apache.hadoop.hive.ql.exec.tez.ReduceRecordSource.pushRecordVector(ReduceRecordSource.java:392)
+	... 19 more
+Caused by: org.apache.hadoop.hive.ql.metadata.HiveFatalException: [Error 20004]: Fatal error occurred when node tried to create too many dynamic partitions. The maximum number of dynamic partitions is controlled by hive.exec.max.dynamic.partitions and hive.exec.max.dynamic.partitions.pernode. Maximum was set to 100 partitions per node, number of dynamic partitions on this node: 101
+	at org.apache.hadoop.hive.ql.exec.FileSinkOperator.getDynOutPaths(FileSinkOperator.java:1289)
+	at org.apache.hadoop.hive.ql.exec.FileSinkOperator.process(FileSinkOperator.java:1029)
+	at org.apache.hadoop.hive.ql.exec.vector.VectorFileSinkOperator.process(VectorFileSinkOperator.java:111)
+	at org.apache.hadoop.hive.ql.exec.Operator.vectorForward(Operator.java:968)
+	at org.apache.hadoop.hive.ql.exec.vector.VectorSelectOperator.process(VectorSelectOperator.java:158)
+	at org.apache.hadoop.hive.ql.exec.tez.ReduceRecordSource.processVectorGroup(ReduceRecordSource.java:490)
+	... 20 more
+], TaskAttempt 2 failed, info=[Error: Error while running task ( failure ) : attempt_1710623082158_0003_1_02_000000_2:java.lang.RuntimeException: java.lang.RuntimeException: org.apache.hadoop.hive.ql.metadata.HiveException: Hive Runtime Error while processing vector batch (tag=0) (vectorizedVertexNum 2)
+	at org.apache.hadoop.hive.ql.exec.tez.TezProcessor.initializeAndRunProcessor(TezProcessor.java:304)
+	at org.apache.hadoop.hive.ql.exec.tez.TezProcessor.run(TezProcessor.java:254)
+	at org.apache.tez.runtime.LogicalIOProcessorRuntimeTask.run(LogicalIOProcessorRuntimeTask.java:384)
+	at org.apache.tez.runtime.task.TaskRunner2Callable$1.run(TaskRunner2Callable.java:88)
+	at org.apache.tez.runtime.task.TaskRunner2Callable$1.run(TaskRunner2Callable.java:69)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:712)
+	at java.base/javax.security.auth.Subject.doAs(Subject.java:439)
+	at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1899)
+	at org.apache.tez.runtime.task.TaskRunner2Callable.callInternal(TaskRunner2Callable.java:69)
+	at org.apache.tez.runtime.task.TaskRunner2Callable.callInternal(TaskRunner2Callable.java:39)
+	at org.apache.tez.common.CallableWithNdc.call(CallableWithNdc.java:36)
+	at com.google.common.util.concurrent.TrustedListenableFutureTask$TrustedFutureInterruptibleTask.runInterruptibly(TrustedListenableFutureTask.java:131)
+	at com.google.common.util.concurrent.InterruptibleTask.run(InterruptibleTask.java:74)
+	at com.google.common.util.concurrent.TrustedListenableFutureTask.run(TrustedListenableFutureTask.java:82)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: java.lang.RuntimeException: org.apache.hadoop.hive.ql.metadata.HiveException: Hive Runtime Error while processing vector batch (tag=0) (vectorizedVertexNum 2)
+	at org.apache.hadoop.hive.ql.exec.tez.ReduceRecordSource.pushRecordVector(ReduceRecordSource.java:401)
+	at org.apache.hadoop.hive.ql.exec.tez.ReduceRecordSource.pushRecord(ReduceRecordSource.java:249)
+	at org.apache.hadoop.hive.ql.exec.tez.ReduceRecordProcessor.run(ReduceRecordProcessor.java:318)
+	at org.apache.hadoop.hive.ql.exec.tez.TezProcessor.initializeAndRunProcessor(TezProcessor.java:272)
+	... 16 more
+Caused by: org.apache.hadoop.hive.ql.metadata.HiveException: Hive Runtime Error while processing vector batch (tag=0) (vectorizedVertexNum 2)
+	at org.apache.hadoop.hive.ql.exec.tez.ReduceRecordSource.processVectorGroup(ReduceRecordSource.java:503)
+	at org.apache.hadoop.hive.ql.exec.tez.ReduceRecordSource.pushRecordVector(ReduceRecordSource.java:392)
+	... 19 more
+Caused by: org.apache.hadoop.hive.ql.metadata.HiveFatalException: [Error 20004]: Fatal error occurred when node tried to create too many dynamic partitions. The maximum number of dynamic partitions is controlled by hive.exec.max.dynamic.partitions and hive.exec.max.dynamic.partitions.pernode. Maximum was set to 100 partitions per node, number of dynamic partitions on this node: 101
+	at org.apache.hadoop.hive.ql.exec.FileSinkOperator.getDynOutPaths(FileSinkOperator.java:1289)
+	at org.apache.hadoop.hive.ql.exec.FileSinkOperator.process(FileSinkOperator.java:1029)
+	at org.apache.hadoop.hive.ql.exec.vector.VectorFileSinkOperator.process(VectorFileSinkOperator.java:111)
+	at org.apache.hadoop.hive.ql.exec.Operator.vectorForward(Operator.java:968)
+	at org.apache.hadoop.hive.ql.exec.vector.VectorSelectOperator.process(VectorSelectOperator.java:158)
+	at org.apache.hadoop.hive.ql.exec.tez.ReduceRecordSource.processVectorGroup(ReduceRecordSource.java:490)
+	... 20 more
+], TaskAttempt 3 failed, info=[Error: Error while running task ( failure ) : attempt_1710623082158_0003_1_02_000000_3:java.lang.RuntimeException: java.lang.RuntimeException: org.apache.hadoop.hive.ql.metadata.HiveException: Hive Runtime Error while processing vector batch (tag=0) (vectorizedVertexNum 2)
+	at org.apache.hadoop.hive.ql.exec.tez.TezProcessor.initializeAndRunProcessor(TezProcessor.java:304)
+	at org.apache.hadoop.hive.ql.exec.tez.TezProcessor.run(TezProcessor.java:254)
+	at org.apache.tez.runtime.LogicalIOProcessorRuntimeTask.run(LogicalIOProcessorRuntimeTask.java:384)
+	at org.apache.tez.runtime.task.TaskRunner2Callable$1.run(TaskRunner2Callable.java:88)
+	at org.apache.tez.runtime.task.TaskRunner2Callable$1.run(TaskRunner2Callable.java:69)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:712)
+	at java.base/javax.security.auth.Subject.doAs(Subject.java:439)
+	at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1899)
+	at org.apache.tez.runtime.task.TaskRunner2Callable.callInternal(TaskRunner2Callable.java:69)
+	at org.apache.tez.runtime.task.TaskRunner2Callable.callInternal(TaskRunner2Callable.java:39)
+	at org.apache.tez.common.CallableWithNdc.call(CallableWithNdc.java:36)
+	at com.google.common.util.concurrent.TrustedListenableFutureTask$TrustedFutureInterruptibleTask.runInterruptibly(TrustedListenableFutureTask.java:131)
+	at com.google.common.util.concurrent.InterruptibleTask.run(InterruptibleTask.java:74)
+	at com.google.common.util.concurrent.TrustedListenableFutureTask.run(TrustedListenableFutureTask.java:82)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: java.lang.RuntimeException: org.apache.hadoop.hive.ql.metadata.HiveException: Hive Runtime Error while processing vector batch (tag=0) (vectorizedVertexNum 2)
+	at org.apache.hadoop.hive.ql.exec.tez.ReduceRecordSource.pushRecordVector(ReduceRecordSource.java:401)
+	at org.apache.hadoop.hive.ql.exec.tez.ReduceRecordSource.pushRecord(ReduceRecordSource.java:249)
+	at org.apache.hadoop.hive.ql.exec.tez.ReduceRecordProcessor.run(ReduceRecordProcessor.java:318)
+	at org.apache.hadoop.hive.ql.exec.tez.TezProcessor.initializeAndRunProcessor(TezProcessor.java:272)
+	... 16 more
+Caused by: org.apache.hadoop.hive.ql.metadata.HiveException: Hive Runtime Error while processing vector batch (tag=0) (vectorizedVertexNum 2)
+	at org.apache.hadoop.hive.ql.exec.tez.ReduceRecordSource.processVectorGroup(ReduceRecordSource.java:503)
+	at org.apache.hadoop.hive.ql.exec.tez.ReduceRecordSource.pushRecordVector(ReduceRecordSource.java:392)
+	... 19 more
+Caused by: org.apache.hadoop.hive.ql.metadata.HiveFatalException: [Error 20004]: Fatal error occurred when node tried to create too many dynamic partitions. The maximum number of dynamic partitions is controlled by hive.exec.max.dynamic.partitions and hive.exec.max.dynamic.partitions.pernode. Maximum was set to 100 partitions per node, number of dynamic partitions on this node: 101
+	at org.apache.hadoop.hive.ql.exec.FileSinkOperator.getDynOutPaths(FileSinkOperator.java:1289)
+	at org.apache.hadoop.hive.ql.exec.FileSinkOperator.process(FileSinkOperator.java:1029)
+	at org.apache.hadoop.hive.ql.exec.vector.VectorFileSinkOperator.process(VectorFileSinkOperator.java:111)
+	at org.apache.hadoop.hive.ql.exec.Operator.vectorForward(Operator.java:968)
+	at org.apache.hadoop.hive.ql.exec.vector.VectorSelectOperator.process(VectorSelectOperator.java:158)
+	at org.apache.hadoop.hive.ql.exec.tez.ReduceRecordSource.processVectorGroup(ReduceRecordSource.java:490)
+	... 20 more
+]], Vertex did not succeed due to OWN_TASK_FAILURE, failedTasks:1 killedTasks:1, Vertex vertex_1710623082158_0003_1_02 [Reducer 3] killed/failed due to:OWN_TASK_FAILURE]
+DAG did not succeed due to VERTEX_FAILURE. failedVertices:1 killedVertices:0
+FAILED: Execution Error, return code 2 from org.apache.hadoop.hive.ql.exec.tez.TezTask. Vertex failed, vertexName=Reducer 3, vertexId=vertex_1710623082158_0003_1_02, diagnostics=[Task failed, taskId=task_1710623082158_0003_1_02_000000, diagnostics=[TaskAttempt 0 failed, info=[Error: Error while running task ( failure ) : attempt_1710623082158_0003_1_02_000000_0:java.lang.RuntimeException: java.lang.RuntimeException: org.apache.hadoop.hive.ql.metadata.HiveException: Hive Runtime Error while processing vector batch (tag=0) (vectorizedVertexNum 2)
+	at org.apache.hadoop.hive.ql.exec.tez.TezProcessor.initializeAndRunProcessor(TezProcessor.java:304)
+	at org.apache.hadoop.hive.ql.exec.tez.TezProcessor.run(TezProcessor.java:254)
+	at org.apache.tez.runtime.LogicalIOProcessorRuntimeTask.run(LogicalIOProcessorRuntimeTask.java:384)
+	at org.apache.tez.runtime.task.TaskRunner2Callable$1.run(TaskRunner2Callable.java:88)
+	at org.apache.tez.runtime.task.TaskRunner2Callable$1.run(TaskRunner2Callable.java:69)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:712)
+	at java.base/javax.security.auth.Subject.doAs(Subject.java:439)
+	at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1899)
+	at org.apache.tez.runtime.task.TaskRunner2Callable.callInternal(TaskRunner2Callable.java:69)
+	at org.apache.tez.runtime.task.TaskRunner2Callable.callInternal(TaskRunner2Callable.java:39)
+	at org.apache.tez.common.CallableWithNdc.call(CallableWithNdc.java:36)
+	at com.google.common.util.concurrent.TrustedListenableFutureTask$TrustedFutureInterruptibleTask.runInterruptibly(TrustedListenableFutureTask.java:131)
+	at com.google.common.util.concurrent.InterruptibleTask.run(InterruptibleTask.java:74)
+	at com.google.common.util.concurrent.TrustedListenableFutureTask.run(TrustedListenableFutureTask.java:82)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: java.lang.RuntimeException: org.apache.hadoop.hive.ql.metadata.HiveException: Hive Runtime Error while processing vector batch (tag=0) (vectorizedVertexNum 2)
+	at org.apache.hadoop.hive.ql.exec.tez.ReduceRecordSource.pushRecordVector(ReduceRecordSource.java:401)
+	at org.apache.hadoop.hive.ql.exec.tez.ReduceRecordSource.pushRecord(ReduceRecordSource.java:249)
+	at org.apache.hadoop.hive.ql.exec.tez.ReduceRecordProcessor.run(ReduceRecordProcessor.java:318)
+	at org.apache.hadoop.hive.ql.exec.tez.TezProcessor.initializeAndRunProcessor(TezProcessor.java:272)
+	... 16 more
+Caused by: org.apache.hadoop.hive.ql.metadata.HiveException: Hive Runtime Error while processing vector batch (tag=0) (vectorizedVertexNum 2)
+	at org.apache.hadoop.hive.ql.exec.tez.ReduceRecordSource.processVectorGroup(ReduceRecordSource.java:503)
+	at org.apache.hadoop.hive.ql.exec.tez.ReduceRecordSource.pushRecordVector(ReduceRecordSource.java:392)
+	... 19 more
+Caused by: org.apache.hadoop.hive.ql.metadata.HiveFatalException: [Error 20004]: Fatal error occurred when node tried to create too many dynamic partitions. The maximum number of dynamic partitions is controlled by hive.exec.max.dynamic.partitions and hive.exec.max.dynamic.partitions.pernode. Maximum was set to 100 partitions per node, number of dynamic partitions on this node: 101
+	at org.apache.hadoop.hive.ql.exec.FileSinkOperator.getDynOutPaths(FileSinkOperator.java:1289)
+	at org.apache.hadoop.hive.ql.exec.FileSinkOperator.process(FileSinkOperator.java:1029)
+	at org.apache.hadoop.hive.ql.exec.vector.VectorFileSinkOperator.process(VectorFileSinkOperator.java:111)
+	at org.apache.hadoop.hive.ql.exec.Operator.vectorForward(Operator.java:968)
+	at org.apache.hadoop.hive.ql.exec.vector.VectorSelectOperator.process(VectorSelectOperator.java:158)
+	at org.apache.hadoop.hive.ql.exec.tez.ReduceRecordSource.processVectorGroup(ReduceRecordSource.java:490)
+	... 20 more
+], TaskAttempt 1 failed, info=[Error: Error while running task ( failure ) : attempt_1710623082158_0003_1_02_000000_1:java.lang.RuntimeException: java.lang.RuntimeException: org.apache.hadoop.hive.ql.metadata.HiveException: Hive Runtime Error while processing vector batch (tag=0) (vectorizedVertexNum 2)
+	at org.apache.hadoop.hive.ql.exec.tez.TezProcessor.initializeAndRunProcessor(TezProcessor.java:304)
+	at org.apache.hadoop.hive.ql.exec.tez.TezProcessor.run(TezProcessor.java:254)
+	at org.apache.tez.runtime.LogicalIOProcessorRuntimeTask.run(LogicalIOProcessorRuntimeTask.java:384)
+	at org.apache.tez.runtime.task.TaskRunner2Callable$1.run(TaskRunner2Callable.java:88)
+	at org.apache.tez.runtime.task.TaskRunner2Callable$1.run(TaskRunner2Callable.java:69)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:712)
+	at java.base/javax.security.auth.Subject.doAs(Subject.java:439)
+	at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1899)
+	at org.apache.tez.runtime.task.TaskRunner2Callable.callInternal(TaskRunner2Callable.java:69)
+	at org.apache.tez.runtime.task.TaskRunner2Callable.callInternal(TaskRunner2Callable.java:39)
+	at org.apache.tez.common.CallableWithNdc.call(CallableWithNdc.java:36)
+	at com.google.common.util.concurrent.TrustedListenableFutureTask$TrustedFutureInterruptibleTask.runInterruptibly(TrustedListenableFutureTask.java:131)
+	at com.google.common.util.concurrent.InterruptibleTask.run(InterruptibleTask.java:74)
+	at com.google.common.util.concurrent.TrustedListenableFutureTask.run(TrustedListenableFutureTask.java:82)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: java.lang.RuntimeException: org.apache.hadoop.hive.ql.metadata.HiveException: Hive Runtime Error while processing vector batch (tag=0) (vectorizedVertexNum 2)
+	at org.apache.hadoop.hive.ql.exec.tez.ReduceRecordSource.pushRecordVector(ReduceRecordSource.java:401)
+	at org.apache.hadoop.hive.ql.exec.tez.ReduceRecordSource.pushRecord(ReduceRecordSource.java:249)
+	at org.apache.hadoop.hive.ql.exec.tez.ReduceRecordProcessor.run(ReduceRecordProcessor.java:318)
+	at org.apache.hadoop.hive.ql.exec.tez.TezProcessor.initializeAndRunProcessor(TezProcessor.java:272)
+	... 16 more
+Caused by: org.apache.hadoop.hive.ql.metadata.HiveException: Hive Runtime Error while processing vector batch (tag=0) (vectorizedVertexNum 2)
+	at org.apache.hadoop.hive.ql.exec.tez.ReduceRecordSource.processVectorGroup(ReduceRecordSource.java:503)
+	at org.apache.hadoop.hive.ql.exec.tez.ReduceRecordSource.pushRecordVector(ReduceRecordSource.java:392)
+	... 19 more
+Caused by: org.apache.hadoop.hive.ql.metadata.HiveFatalException: [Error 20004]: Fatal error occurred when node tried to create too many dynamic partitions. The maximum number of dynamic partitions is controlled by hive.exec.max.dynamic.partitions and hive.exec.max.dynamic.partitions.pernode. Maximum was set to 100 partitions per node, number of dynamic partitions on this node: 101
+	at org.apache.hadoop.hive.ql.exec.FileSinkOperator.getDynOutPaths(FileSinkOperator.java:1289)
+	at org.apache.hadoop.hive.ql.exec.FileSinkOperator.process(FileSinkOperator.java:1029)
+	at org.apache.hadoop.hive.ql.exec.vector.VectorFileSinkOperator.process(VectorFileSinkOperator.java:111)
+	at org.apache.hadoop.hive.ql.exec.Operator.vectorForward(Operator.java:968)
+	at org.apache.hadoop.hive.ql.exec.vector.VectorSelectOperator.process(VectorSelectOperator.java:158)
+	at org.apache.hadoop.hive.ql.exec.tez.ReduceRecordSource.processVectorGroup(ReduceRecordSource.java:490)
+	... 20 more
+], TaskAttempt 2 failed, info=[Error: Error while running task ( failure ) : attempt_1710623082158_0003_1_02_000000_2:java.lang.RuntimeException: java.lang.RuntimeException: org.apache.hadoop.hive.ql.metadata.HiveException: Hive Runtime Error while processing vector batch (tag=0) (vectorizedVertexNum 2)
+	at org.apache.hadoop.hive.ql.exec.tez.TezProcessor.initializeAndRunProcessor(TezProcessor.java:304)
+	at org.apache.hadoop.hive.ql.exec.tez.TezProcessor.run(TezProcessor.java:254)
+	at org.apache.tez.runtime.LogicalIOProcessorRuntimeTask.run(LogicalIOProcessorRuntimeTask.java:384)
+	at org.apache.tez.runtime.task.TaskRunner2Callable$1.run(TaskRunner2Callable.java:88)
+	at org.apache.tez.runtime.task.TaskRunner2Callable$1.run(TaskRunner2Callable.java:69)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:712)
+	at java.base/javax.security.auth.Subject.doAs(Subject.java:439)
+	at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1899)
+	at org.apache.tez.runtime.task.TaskRunner2Callable.callInternal(TaskRunner2Callable.java:69)
+	at org.apache.tez.runtime.task.TaskRunner2Callable.callInternal(TaskRunner2Callable.java:39)
+	at org.apache.tez.common.CallableWithNdc.call(CallableWithNdc.java:36)
+	at com.google.common.util.concurrent.TrustedListenableFutureTask$TrustedFutureInterruptibleTask.runInterruptibly(TrustedListenableFutureTask.java:131)
+	at com.google.common.util.concurrent.InterruptibleTask.run(InterruptibleTask.java:74)
+	at com.google.common.util.concurrent.TrustedListenableFutureTask.run(TrustedListenableFutureTask.java:82)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: java.lang.RuntimeException: org.apache.hadoop.hive.ql.metadata.HiveException: Hive Runtime Error while processing vector batch (tag=0) (vectorizedVertexNum 2)
+	at org.apache.hadoop.hive.ql.exec.tez.ReduceRecordSource.pushRecordVector(ReduceRecordSource.java:401)
+	at org.apache.hadoop.hive.ql.exec.tez.ReduceRecordSource.pushRecord(ReduceRecordSource.java:249)
+	at org.apache.hadoop.hive.ql.exec.tez.ReduceRecordProcessor.run(ReduceRecordProcessor.java:318)
+	at org.apache.hadoop.hive.ql.exec.tez.TezProcessor.initializeAndRunProcessor(TezProcessor.java:272)
+	... 16 more
+Caused by: org.apache.hadoop.hive.ql.metadata.HiveException: Hive Runtime Error while processing vector batch (tag=0) (vectorizedVertexNum 2)
+	at org.apache.hadoop.hive.ql.exec.tez.ReduceRecordSource.processVectorGroup(ReduceRecordSource.java:503)
+	at org.apache.hadoop.hive.ql.exec.tez.ReduceRecordSource.pushRecordVector(ReduceRecordSource.java:392)
+	... 19 more
+Caused by: org.apache.hadoop.hive.ql.metadata.HiveFatalException: [Error 20004]: Fatal error occurred when node tried to create too many dynamic partitions. The maximum number of dynamic partitions is controlled by hive.exec.max.dynamic.partitions and hive.exec.max.dynamic.partitions.pernode. Maximum was set to 100 partitions per node, number of dynamic partitions on this node: 101
+	at org.apache.hadoop.hive.ql.exec.FileSinkOperator.getDynOutPaths(FileSinkOperator.java:1289)
+	at org.apache.hadoop.hive.ql.exec.FileSinkOperator.process(FileSinkOperator.java:1029)
+	at org.apache.hadoop.hive.ql.exec.vector.VectorFileSinkOperator.process(VectorFileSinkOperator.java:111)
+	at org.apache.hadoop.hive.ql.exec.Operator.vectorForward(Operator.java:968)
+	at org.apache.hadoop.hive.ql.exec.vector.VectorSelectOperator.process(VectorSelectOperator.java:158)
+	at org.apache.hadoop.hive.ql.exec.tez.ReduceRecordSource.processVectorGroup(ReduceRecordSource.java:490)
+	... 20 more
+], TaskAttempt 3 failed, info=[Error: Error while running task ( failure ) : attempt_1710623082158_0003_1_02_000000_3:java.lang.RuntimeException: java.lang.RuntimeException: org.apache.hadoop.hive.ql.metadata.HiveException: Hive Runtime Error while processing vector batch (tag=0) (vectorizedVertexNum 2)
+	at org.apache.hadoop.hive.ql.exec.tez.TezProcessor.initializeAndRunProcessor(TezProcessor.java:304)
+	at org.apache.hadoop.hive.ql.exec.tez.TezProcessor.run(TezProcessor.java:254)
+	at org.apache.tez.runtime.LogicalIOProcessorRuntimeTask.run(LogicalIOProcessorRuntimeTask.java:384)
+	at org.apache.tez.runtime.task.TaskRunner2Callable$1.run(TaskRunner2Callable.java:88)
+	at org.apache.tez.runtime.task.TaskRunner2Callable$1.run(TaskRunner2Callable.java:69)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:712)
+	at java.base/javax.security.auth.Subject.doAs(Subject.java:439)
+	at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1899)
+	at org.apache.tez.runtime.task.TaskRunner2Callable.callInternal(TaskRunner2Callable.java:69)
+	at org.apache.tez.runtime.task.TaskRunner2Callable.callInternal(TaskRunner2Callable.java:39)
+	at org.apache.tez.common.CallableWithNdc.call(CallableWithNdc.java:36)
+	at com.google.common.util.concurrent.TrustedListenableFutureTask$TrustedFutureInterruptibleTask.runInterruptibly(TrustedListenableFutureTask.java:131)
+	at com.google.common.util.concurrent.InterruptibleTask.run(InterruptibleTask.java:74)
+	at com.google.common.util.concurrent.TrustedListenableFutureTask.run(TrustedListenableFutureTask.java:82)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: java.lang.RuntimeException: org.apache.hadoop.hive.ql.metadata.HiveException: Hive Runtime Error while processing vector batch (tag=0) (vectorizedVertexNum 2)
+	at org.apache.hadoop.hive.ql.exec.tez.ReduceRecordSource.pushRecordVector(ReduceRecordSource.java:401)
+	at org.apache.hadoop.hive.ql.exec.tez.ReduceRecordSource.pushRecord(ReduceRecordSource.java:249)
+	at org.apache.hadoop.hive.ql.exec.tez.ReduceRecordProcessor.run(ReduceRecordProcessor.java:318)
+	at org.apache.hadoop.hive.ql.exec.tez.TezProcessor.initializeAndRunProcessor(TezProcessor.java:272)
+	... 16 more
+Caused by: org.apache.hadoop.hive.ql.metadata.HiveException: Hive Runtime Error while processing vector batch (tag=0) (vectorizedVertexNum 2)
+	at org.apache.hadoop.hive.ql.exec.tez.ReduceRecordSource.processVectorGroup(ReduceRecordSource.java:503)
+	at org.apache.hadoop.hive.ql.exec.tez.ReduceRecordSource.pushRecordVector(ReduceRecordSource.java:392)
+	... 19 more
+Caused by: org.apache.hadoop.hive.ql.metadata.HiveFatalException: [Error 20004]: Fatal error occurred when node tried to create too many dynamic partitions. The maximum number of dynamic partitions is controlled by hive.exec.max.dynamic.partitions and hive.exec.max.dynamic.partitions.pernode. Maximum was set to 100 partitions per node, number of dynamic partitions on this node: 101
+	at org.apache.hadoop.hive.ql.exec.FileSinkOperator.getDynOutPaths(FileSinkOperator.java:1289)
+	at org.apache.hadoop.hive.ql.exec.FileSinkOperator.process(FileSinkOperator.java:1029)
+	at org.apache.hadoop.hive.ql.exec.vector.VectorFileSinkOperator.process(VectorFileSinkOperator.java:111)
+	at org.apache.hadoop.hive.ql.exec.Operator.vectorForward(Operator.java:968)
+	at org.apache.hadoop.hive.ql.exec.vector.VectorSelectOperator.process(VectorSelectOperator.java:158)
+	at org.apache.hadoop.hive.ql.exec.tez.ReduceRecordSource.processVectorGroup(ReduceRecordSource.java:490)
+	... 20 more
+]], Vertex did not succeed due to OWN_TASK_FAILURE, failedTasks:1 killedTasks:1, Vertex vertex_1710623082158_0003_1_02 [Reducer 3] killed/failed due to:OWN_TASK_FAILURE]DAG did not succeed due to VERTEX_FAILURE. failedVertices:1 killedVertices:0
+hive> INSERT OVERWRITE TABLE final_sales_tbl partition(`order_id`)
+    > SELECT
+    > cast(region  as string),
+    > cast(`country` as string),
+    > cast(`item_type` as string),
+    > cast(`sales_channel` as  string),
+    > cast(`order_priority` as string),
+    > coalesce(
+    >  CAST( from_unixtime(unix_timestamp(`order_date`, 'MM/dd/yyyy'), 'yyyy-MM-dd') as string) ,
+    >  CAST( from_unixtime(unix_timestamp(`order_date`, 'dd-MM-yyyy'), 'yyyy-MM-dd') as string)
+    > ) ,
+    > coalesce(
+    >  CAST( from_unixtime(unix_timestamp(order_date,  'MM/dd/yyyy'), "yyyy") as string) ,
+    >   CAST(from_unixtime(unix_timestamp(order_date, 'dd-MM-yyyy'), "yyyy")AS STRING)
+    > )as order_year,
+    > coalesce(
+    >  CAST( from_unixtime(unix_timestamp(`ship_date`  , 'MM/dd/yyyy'), 'yyyy-MM-dd') as string) ,
+    >  CAST( from_unixtime(unix_timestamp(`ship_date`  , 'dd-MM-yyyy'), 'yyyy-MM-dd') as string)
+    > ) ,
+    > coalesce(
+    >  CAST( from_unixtime(unix_timestamp(`ship_date`  , 'MM/dd/yyyy'), "yyyy") as string) ,
+    >   CAST(from_unixtime(unix_timestamp(`ship_date` , 'dd-MM-yyyy'), "yyyy")AS STRING)
+    > )as shipped_year,
+    > cast(`units_sold` as  int),
+    > cast(`unit_price`as  float),
+    > cast(`unit_cost` as float),
+    > cast(`total_revenue` as  float),
+    > cast(`total_cost`as  float),
+    > cast(`total_profit`as  float),
+    > cast(`order_id` as int)
+    > FROM sales_table LIMIT 100;
+Query ID = hadoop_20240316212538_b2ba1137-fd30-44ef-a7a2-46afa6b04ac2
+Total jobs = 1
+Launching Job 1 out of 1
+Status: Running (Executing on YARN cluster with App id application_1710623082158_0003)
+
+----------------------------------------------------------------------------------------------
+        VERTICES      MODE        STATUS  TOTAL  COMPLETED  RUNNING  PENDING  FAILED  KILLED  
+----------------------------------------------------------------------------------------------
+Map 1 .......... container     SUCCEEDED      1          1        0        0       0       0  
+Reducer 2 ...... container     SUCCEEDED      1          1        0        0       0       0  
+Reducer 3 ...... container     SUCCEEDED      2          2        0        0       0       0  
+Reducer 4 ...... container     SUCCEEDED      2          2        0        0       0       0  
+----------------------------------------------------------------------------------------------
+VERTICES: 04/04  [==========================>>] 100%  ELAPSED TIME: 14.82 s    
+----------------------------------------------------------------------------------------------
+Loading data to table default.final_sales_tbl partition (order_id=null)
+
+Loaded : 100/100 partitions.
+	 Time taken to load dynamic partitions: 4.408 seconds
+	 Time taken for adding to write entity : 0.005 seconds
+OK
+Time taken: 23.751 seconds
+hive> select * from final_sales_tbl limit 10;
+OK
+Sub-Saharan Africa	Mauritius 	Personal Care	Online	C	2016-01-01	2016	2016-07-01	2016	8529	81.73	56.67	697075.2	483338.44	213736.73	118002879
+Australia and Oceania	Fiji	Vegetables	Offline	H	2013-12-24	2013	2014-01-19	2014	4800	154.06	90.93	739488.0	436464.0	303024.0	118598544
+Sub-Saharan Africa	Niger	Baby Food	Online	M	2016-03-01	2016	2016-01-02	2016	5766	255.28	159.42	1471944.5	919215.75	552728.75	123670709
+Middle East and North Africa	Algeria	Personal Care	Online	H	2011-02-20	2011	2011-09-03	2011	9681	81.73	56.67	791228.1	548622.25	242605.86	127468717
+Sub-Saharan Africa	Guinea-Bissau	Office Supplies	Offline	C	2014-05-21	2014	2014-12-06	2014	3221	651.21	524.96	2097547.5	1690896.1	406651.25	133766114
+Sub-Saharan Africa	South Sudan	Meat	Online	C	2013-09-30	2013	2013-01-10	2013	5319	421.89	364.69	2244033.0	1939786.1	304246.8	159050118
+Asia	Philippines	Baby Food	Online	L	2014-02-23	2014	2014-03-23	2014	4079	255.28	159.42	1041287.1	650274.2	391012.94	160127294
+Asia	Japan	Cereal	Offline	C	2010-10-04	2010	2010-12-05	2010	3322	205.7	117.11	683335.4	389039.4	294295.97	161442649
+Sub-Saharan Africa	Gabon	Household	Offline	C	2013-11-11	2013	2013-12-24	2013	5798	668.27	502.54	3874629.5	2913727.0	960902.56	167161977
+Asia	Malaysia	Snacks	Offline	M	2012-06-10	2012	2012-05-11	2012	5033	152.58	97.44	767935.1	490415.53	277519.62	175033080
+Time taken: 0.138 seconds, Fetched: 10 row(s)
+hive> show partitions final_sales_tbl;
+OK
+order_id=118002879
+order_id=118598544
+order_id=123670709
+order_id=127468717
+order_id=133766114
+order_id=159050118
+order_id=160127294
+order_id=161442649
+order_id=167161977
+order_id=175033080
+order_id=185941302
+order_id=193775498
+order_id=208630645
+order_id=211114585
+order_id=220003211
+order_id=221975171
+order_id=235702931
+order_id=238714301
+order_id=246222341
+order_id=247802054
+order_id=248335492
+order_id=262056386
+order_id=262749040
+order_id=262770926
+order_id=266467225
+order_id=270001733
+order_id=276595246
+order_id=280494105
+order_id=285341823
+order_id=294499957
+order_id=329110324
+order_id=331604564
+order_id=350274455
+order_id=357222878
+order_id=366653096
+order_id=369837844
+order_id=397877871
+order_id=400304734
+order_id=405785882
+order_id=405997025
+order_id=410067975
+order_id=414244067
+order_id=430390107
+order_id=443121373
+order_id=448685348
+order_id=451010930
+order_id=469839179
+order_id=470897471
+order_id=481065833
+order_id=489148938
+order_id=499009597
+order_id=531023156
+order_id=535654580
+order_id=544485270
+order_id=546986377
+order_id=564646470
+order_id=566935575
+order_id=596628272
+order_id=600370490
+order_id=645713555
+order_id=658348691
+order_id=668599021
+order_id=671898782
+order_id=679414975
+order_id=680517470
+order_id=681298100
+order_id=681941401
+order_id=683458888
+order_id=683927953
+order_id=686800706
+order_id=689975583
+order_id=693473613
+order_id=702186715
+order_id=714135205
+order_id=726708972
+order_id=734526431
+order_id=759279143
+order_id=769205892
+order_id=770478332
+order_id=810871112
+order_id=811701095
+order_id=812295901
+order_id=817740142
+order_id=821912801
+order_id=835054767
+order_id=858877503
+order_id=866792809
+order_id=869397771
+order_id=876286971
+order_id=880999934
+order_id=887400329
+order_id=890695369
+order_id=901712167
+order_id=944415509
+order_id=947434604
+order_id=951380240
+order_id=964214932
+order_id=977313554
+order_id=980612885
+order_id=__HIVE_DEFAULT_PARTITION__
+Time taken: 0.061 seconds, Fetched: 100 row(s)

@@ -1,0 +1,5 @@
+# Third-party libraries useful for when we create surrogate keys for our models.
+
+packages:
+  - package: dbt-labs/dbt_utils
+    version: 1.1.1

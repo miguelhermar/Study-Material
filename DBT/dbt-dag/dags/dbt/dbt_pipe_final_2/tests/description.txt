@@ -1,0 +1,8 @@
+There are two ways of defining data tests in dbt:
+
+- A singular data test is testing in its simplest form: If you can write a SQL query that returns failing rows, you can save that query in a .sql file within your test directory. It's now a data test, and it will be executed by the dbt test command.
+- A generic data test is a parameterized query that accepts arguments. The test query is defined in a special test block (like a macro). Once defined, you can reference the generic test by name throughout your .yml files—define it on models, columns, sources, snapshots, and seeds. dbt ships with four generic data tests built in, and we think you should use them!
+
+ # In this specific folder there are only singular tests. The generic tests are found within the marts folder.
+
+ # Tests help ensure the data integrity and consistency of a table, by enforcing rules on the data values in each column.

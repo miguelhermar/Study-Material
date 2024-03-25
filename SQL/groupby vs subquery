@@ -1,0 +1,48 @@
+SELECT
+    product_id,
+    product_name
+FROM
+    Product
+WHERE
+    product_id IN (
+        SELECT DISTINCT
+            product_id
+        FROM
+            Sales
+        WHERE
+            sale_date >= DATE('2019-01-01')
+            AND sale_date <= DATE('2019-03-31')
+                AND product_id NOT IN (
+                SELECT DISTINCT
+                    product_id
+                FROM
+                    Sales
+                WHERE
+                    sale_date < DATE('2019-01-01')
+                    OR sale_date > DATE('2019-03-31')
+                )
+    );
+
+
+VS
+
+:O --> GROUP BY can be used without an aggregation function in the SELECT statement!!!
+It's because we're only using product_id and product_name both in SELCT and GROUP BY!!
+
+
+SELECT
+	product_id,
+	product_name
+FROM
+	Product
+JOIN
+	Sales USING (product_id)
+GROUP BY
+	product_id, product_name
+HAVING
+	MIN(sale_date) >= DATE('2019-01-01')
+	AND MAX(sale_date) <= DATE('2019-03-31')
+
+
+
+
